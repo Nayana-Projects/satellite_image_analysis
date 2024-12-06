@@ -1,0 +1,65 @@
+import os
+import requests
+
+# Your API key
+API_KEY = "W6RyAOONWxfilmDGKi1u5l4pUFyjV7QgQchsKgFR"  # Replace with your API key
+
+# API Endpoint
+API_URL = "https://api.nasa.gov/planetary/apod"
+
+# Target Folder
+RAW_DATA_DIR = "data/raw/"
+
+def fetch_apod_images(start_date, end_date, output_dir):
+    """
+    Fetch APOD images between the specified date range and save them locally.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Construct the API request parameters
+    params = {
+        "api_key": API_KEY,
+        "start_date": start_date,
+        "end_date": end_date,
+    }
+
+    print(f"Fetching APOD images between {start_date} and {end_date}...")
+    response = requests.get(API_URL, params=params)
+    if response.status_code != 200:
+        print(f"Error: Unable to fetch data (Status: {response.status_code})")
+        print("Response:", response.text)
+        return
+
+    # Parse the JSON response
+    data = response.json()
+    if not data:
+        print("No images found for the given date range.")
+        return
+
+    # Download each image
+    for item in data:
+        if "url" in item and item["media_type"] == "image":
+            image_url = item["url"]
+            filename = item["date"] + "_" + os.path.basename(image_url)
+            file_path = os.path.join(output_dir, filename)
+
+            print(f"Downloading {filename} from {image_url}...")
+            image_response = requests.get(image_url, stream=True)
+            if image_response.status_code == 200:
+                with open(file_path, "wb") as f:
+                    for chunk in image_response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                print(f"Saved: {file_path}")
+            else:
+                print(f"Failed to download {filename}: {image_response.status_code}")
+        else:
+            print(f"Skipping non-image content for date {item.get('date')}")
+
+if __name__ == "__main__":
+    # Define the date range
+    start_date = "2023-01-01"  # Replace with your desired start date
+    end_date = "2023-01-10"    # Replace with your desired end date
+
+    # Fetch and store images
+    fetch_apod_images(start_date, end_date, RAW_DATA_DIR)
+
