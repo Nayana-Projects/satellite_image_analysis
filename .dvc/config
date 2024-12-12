@@ -1,4 +1,6 @@
-[core]
-    remote = storage
-['remote "storage"']
-    url = gdrive://1-jXjktqcTEczhDBX-3u_zHn-Ydss90w8
+ [core]
+  2     remote = gcsremote
+  3 ['remote "storage"']
+  4     url = gdrive://1-jXjktqcTEczhDBX-3u_zHn-Ydss90w8
+  5 ['remote "gcsremote"']
+  6     url = gs://satellite-dvc-bucket
