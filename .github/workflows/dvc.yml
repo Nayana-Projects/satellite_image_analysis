@@ -3,7 +3,7 @@ name: DVC Workflow
 on:
   push:
     branches:
-      - main  # Trigger this workflow on pushes to the main branch
+      - master  # Trigger this workflow on pushes to the main branch
 
 jobs:
   dvc:
