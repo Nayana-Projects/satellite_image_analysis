@@ -1,0 +1,44 @@
+name: DVC Workflow
+
+on:
+  push:
+    branches:
+      - main  # Trigger this workflow on pushes to the main branch
+
+jobs:
+  dvc:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8  # Use the appropriate Python version
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install dvc[gcs]  # Include your specific DVC remote
+
+      # Step 4: Authenticate with GCP
+      - name: Authenticate with GCP
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+        run: |
+          echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > gcp-key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
+
+      # Step 5: Pull DVC data
+      - name: Pull DVC data
+        run: dvc pull
+
+      # Step 6: Push changes to DVC remote
+      - name: Push changes to DVC remote
+        # if: github.event_name == 'push'
+        run: dvc push
