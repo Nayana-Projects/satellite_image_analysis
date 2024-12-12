@@ -35,8 +35,8 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
 
       # Step 5: Pull DVC data
-      - name: Pull DVC data
-        run: dvc pull
+    #  - name: Pull DVC data
+   #     run: dvc pull
 
       # Step 6: Push changes to DVC remote
       - name: Push changes to DVC remote
