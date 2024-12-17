@@ -65,10 +65,17 @@ jobs:
         run: |
            sudo timedatectl set-ntp true
            echo "Clock synchronization enabled."
-
+           
       - name: Set GCP credentials
+        env:
+          GCP_CREDENTIALS: ${{ secrets.GCP }}
         run: |
-         dvc remote modify gcsremote --local credentialpath robotic-land-444421-t8-8f71fbcb68d2.json
+          echo "$GCP_CREDENTIALS" > gcp-credentials.json
+          dvc remote modify gcsremote --local credentialpath gcp-credentials.json
+
+   #  - name: Set GCP credentials
+   #    run: |
+   #      dvc remote modify gcsremote --local credentialpath robotic-land-444421-t8-8f71fbcb68d2.json
 
       - name: Push changes to DVC remote
         run: dvc push
