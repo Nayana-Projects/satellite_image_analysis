@@ -34,7 +34,8 @@ jobs:
 
       # Step 4: Run Python script
       - name: Run APOD fetch script
-        run: python fetch_apod_images.py
+        run: |
+         python fetch_apod_images.py
 
   # Third Job: DVC Push
   dvc-push:
