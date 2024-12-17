@@ -3,7 +3,7 @@ name: DVC Workflow
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch: # Allows manual trigger of the workflow
 
 jobs:
