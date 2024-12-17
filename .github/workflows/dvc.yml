@@ -3,10 +3,13 @@ name: DVC Workflow
 on:
   push:
     branches:
-      - master  # Trigger this workflow on pushes to the main branch
+      - main
+  workflow_dispatch: # Allows manual trigger of the workflow
 
 jobs:
-  dvc:
+  # First Job: Run Python Script
+  dataset:
+    name: Run fetch_apod_images.py
     runs-on: ubuntu-latest
 
     steps:
@@ -18,27 +21,48 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8  # Use the appropriate Python version
+          python-version: 3.8  # Adjust Python version if needed
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install dvc[gcs]  # Include your specific DVC remote
 
-      # Step 4: Authenticate with GCP
-      - name: Authenticate with GCP
+      # Step 4: Run Python script
+      - name: Run APOD fetch script
+        run: python fetch_apod_images.py
+
+  # Third Job: DVC Push
+  dvc-push:
+    name: DVC Push
+    runs-on: ubuntu-latest
+    needs: dataset
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      # Step 3: Install DVC
+      - name: Install DVC and dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install dvc[gcs]
+
+      # Step 4: Set GCP credentials
+      - name: Set GCP credentials
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_APPLICATION_CREDENTIALS: gcp-key.json
         run: |
           echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > gcp-key.json
           export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
 
-      # Step 5: Pull DVC data
-    #  - name: Pull DVC data
-   #     run: dvc pull
-
-      # Step 6: Push changes to DVC remote
+      # Step 5: DVC Push
       - name: Push changes to DVC remote
-        # if: github.event_name == 'push'
         run: dvc push
