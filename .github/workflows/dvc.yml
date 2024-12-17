@@ -67,12 +67,8 @@ jobs:
            echo "Clock synchronization enabled."
 
       - name: Set GCP credentials
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: gcp-key.json
         run: |
-         printf '%s' '${{ secrets.GCP }}' > gcp-key.json
-         export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
-         dvc remote modify gcsremote --local credentialpath gcp-key.json
+         dvc remote modify gcsremote --local credentialpath robotic-land-444421-t8-8f71fbcb68d2.json
 
       - name: Push changes to DVC remote
         run: dvc push
