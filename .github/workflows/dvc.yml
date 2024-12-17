@@ -26,7 +26,11 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+                pip install --upgrade pip
+                pip install requests  # Explicitly install 'requests'
+                if [ -f requirements.txt ]; then
+                pip install -r requirements.txt
+                fi
 
       # Step 4: Run Python script
       - name: Run APOD fetch script
