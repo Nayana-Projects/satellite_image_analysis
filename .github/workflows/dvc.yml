@@ -66,6 +66,7 @@ jobs:
         run: |
           echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > gcp-key.json
           export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
+          dvc remote modify gcsremote --local credentialpath gcp-key.json
 
       # Step 5: DVC Push
       - name: Push changes to DVC remote
