@@ -62,7 +62,8 @@ jobs:
          pip install dvc-gs
          
       - name: Synchronize system clock
-        run: sudo ntpdate -s time.google.com
+        run: |
+          sudo ntpdate -s time.google.com
 
       - name: Set GCP credentials
         env:
