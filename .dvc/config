@@ -1,4 +1,4 @@
  [core]
-  2     remote = gcsremote
-  5 ['remote "gcsremote"']
-  6     url = gs://satellite-dvc-bucket
+       remote = gcsremote
+   ['remote "gcsremote"']
+      url = gs://satellite-dvc-bucket
