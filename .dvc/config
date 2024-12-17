@@ -1,4 +1,8 @@
- [core]
+  [core]
        remote = gcsremote
+   ['remote "gdrive_remote"']
+       url = gdrive://1-jXjktqcTEczhDBX-3u_zHn-Ydss90w8
+       gdrive_use_service_account = true
+       gdrive_service_account_json_file_path = ../robotic-land-444421-t8-acba0da63bc7.json
    ['remote "gcsremote"']
-      url = gs://satellite-dvc-bucket
+       url = gs://satellite-dvc-bucket
