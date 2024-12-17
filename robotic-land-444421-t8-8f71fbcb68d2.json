@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "robotic-land-444421-t8",
+  "private_key_id": "8f71fbcb68d2e94a1892384f29d1952d4bde5b15",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDW8+YreGqKlFsa\naiBaMvEPdG4R0dC0DbHOXwexLF2hblQ9ABjQUF1gV6gyTvBM5wHwKqprXN5pMf4K\n72H75wTm0R9xKlixjVnL1nvNTDFb4saYfUbhR9LMOFjTyXaTCSkOVnl/DqPDOyy1\nm6T1W26+XM6AKfbJ+GpEKwVq1uNcNuISeozg0xURggAzGcXLcnyc7TvOJJfQqd91\nawGY4wQp+760mBIMDNwPeEQGI+K0ileXYYj7HlKtfe13euANOqK/jVsH78KgO2SE\nEbJE8z3BAGp8Y2X0LjJI++FIEex6Du4jGlC2FKMl0EO001spd5rZh+ZnRD8Nb+Ue\n68Z7q5pLAgMBAAECggEAWEVmkxlrHyeXVfyY9pGO3trgTJ8OBrLM/sOVpBNlC+MD\n4t0EU599CRBWOPqjweDnsdnDjD1h9G8cNR9i7JBNOgBM2isaqycx5fxZcNBGQMaa\n6YogrmjRTx4glDBaaj1Lx+CJGj1H0OefD6EwF7YJf1EbWBRjjUNfWEkWe25thbMf\nbwsjY5roaGAUbQRjPRVUzize5erWOYbA6Dqt6zXVzSuuDbJyMdw9IiX7KjmZE/kS\nC8rmVSe2FetNembOFawgW3cigzv7HAVsPfgBwhcMHrZe3/ndaY38s+dv4zvp65Zp\n7hmK9uz0rIk+CMyNQ9hglURonwG6H5Ah0Z97JBlqKQKBgQDrSSGQwe16rJo6HCB9\n1JFkZ3V1XXefm7RLe6WY+nPe2ZkZ1dX/xO3TA8kAMZMEmEGjxEQukW8cZeDxWG7C\nwzf847hdf0Z9PJIxePGMSa9qc2I0+NHe4JB92SI2+yanukpolE/59dolcZzkk3/g\nKwqVDX6/UFrV4O62icaqvq2XXQKBgQDp4IETCbEHiJ5omoTP6ENibV0+wGirzU5I\nt0G4p66q6921uNj1Z9RO3tpVOd9SH+DPjcf/54UeWcmGwP+I5TLiNSL/46spI2RU\nPLDgx6KLkxIoBb6VOggfxdkdklS39IwcHtP+Of55KXUfoHWtCvw7tKU/cjS1J2w2\nrgQt+hylxwKBgDzhmXvZkleR3f53VLj6jfyLAMuzucZlBcwaXIkvFVhuub0DpfIe\nxOM7MYGJUl93/lQf7vyVyUhx3DjXByICXbRkQEqBKn4xdCq0/tusHWXQIXNPhw7C\n0OCflMjhR+lSvPo+lks5oI7bzRsgR5B70qsq6MccRcTeBSbak7uOx2BJAoGBALfg\ngNq89ehca18GjYEAtWn/Xh5mHGVmxzO4kP1jKJrNUsT7DejztyJDaBk1pPTmh1Pn\nvuTd2/Ve1mkR+FZjDTx4VoolL37qiokIJnCzxIJEITRCP/MHaze/z9HGKMFwjW/W\ndQoeAoq0I5e4Co0AZAt1Ha7iVbpPwm7DJhoX2MolAoGAKvzbFIp96uPJIdi4LAsd\ni54zkTHi+YiVP/E8DPcHEMSpj31Hsk+sHjoDBnLS/hFZ1G0uzDuccvcW0QZftWN/\nX5sl0+MJSP61fbg7mRqpUTLEaF9Of2vunGiu/PJPR99xrPXthpLnUNFNzCIkwsXh\n7zcM/CpqONk94bNVwLw9hW0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dvc-service-account@robotic-land-444421-t8.iam.gserviceaccount.com",
+  "client_id": "104341960988685299449",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dvc-service-account%40robotic-land-444421-t8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
