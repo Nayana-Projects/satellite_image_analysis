@@ -54,11 +54,10 @@ jobs:
           python-version: 3.8
 
       # Step 3: Install DVC
-      - name: Install DVC and dependencies
+      - name: Install DVC and GCS dependencies
         run: |
-          pip install -r requirements.txt
-          pip install dvc[gcs]
-
+         pip install --upgrade pip
+         pip install dvc[gcs]
       # Step 4: Set GCP credentials
       - name: Set GCP credentials
         env:
