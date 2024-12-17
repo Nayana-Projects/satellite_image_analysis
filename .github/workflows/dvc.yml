@@ -63,7 +63,8 @@ jobs:
          
       - name: Synchronize system clock
         run: |
-          sudo ntpdate -s time.google.com
+           sudo timedatectl set-ntp true
+           echo "Clock synchronization enabled."
 
       - name: Set GCP credentials
         run: |
