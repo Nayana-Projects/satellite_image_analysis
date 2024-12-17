@@ -66,12 +66,10 @@ jobs:
           sudo ntpdate -s time.google.com
 
       - name: Set GCP credentials
-        env:
-          GCP_KEY: ${{ secrets.GCP }}
-          run: |
-            printf '%s' "$GCP_KEY" > gcp-key.json
-            export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
-            dvc remote modify gcsremote --local credentialpath gcp-key.json
+        run: |
+          printf '%s' "${{ secrets.GCP }}" > gcp-key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
+          dvc remote modify gcsremote --local credentialpath gcp-key.json
 
       - name: Push changes to DVC remote
         run: dvc push
